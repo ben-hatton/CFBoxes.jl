@@ -1,5 +1,7 @@
 module CFBoxes
 
+using ManagedLoops: @vec, @with
+
 # boundary topology exports
 export Periodic, Bounded
 
@@ -11,6 +13,9 @@ export NeumannBC, DirichletBC, PeriodicBC
 export BoundaryCondition2D, DiscreteBoundaryCondition2D
 export BoundaryConditions2D
 export check_bcs, display_bcs
+
+# apply boundary condition exports
+export apply_bc_xz!, apply_bc_Xz!, apply_bc_xZ!, periodize!
 
 # box exports
 export AbstractBox, AbstractBoxHalo, Box2D, Box3D
@@ -37,6 +42,7 @@ export AdvectionScheme, AdvEnergyCons, AdvEnstrophyCons
 include("julia/boundary_topology.jl")
 include("julia/boxes.jl")
 include("julia/boundary_conditions.jl")
+include("julia/apply_boundary_conditions.jl")
 include("julia/centered_operators.jl")
 include("julia/advection_schemes.jl")
 
